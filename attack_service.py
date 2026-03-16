@@ -23,13 +23,14 @@ def process_attack():
             continue
         data = json.loads(msg.value().decode('utf-8'))
 
-        ent_id = data["entity_id"]
+        ent_id = data.get('entity_id')
         
         database.upsert_target(ent_id, {"dtatus": "attacked", "last_attack": data['timestamp']})
         log_event('INFO', f"Target {ent_id} is attacked", {"weapon": data['weapon_type']})
 
 if __name__ == "__main__":
     process_attack()
+
     
 
 

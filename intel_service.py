@@ -38,8 +38,8 @@ def process_intel():
                                         "last_signal": data["timestamp"]})
         log_event('INFO', f"intel updated for {ent_id} in DB")
 
+
+    
 if __name__ == "__main__":
     process_intel()
-    
-
 
